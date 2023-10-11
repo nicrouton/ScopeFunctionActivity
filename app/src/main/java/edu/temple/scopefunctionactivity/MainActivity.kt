@@ -3,6 +3,7 @@ package edu.temple.scopefunctionactivity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.notification.NotificationListenerService.RankingMap
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -13,9 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val listSize = 10
+        val random = Random.Default
+        val doubles = mutableListOf<Double>()
+
+        for (i in 1..listSize) {
+            val randomDoub = random.nextDouble()
+            doubles.add(randomDoub)
+        }
+
         // You can test your helper functions by calling them from onCreate() and
         // printing their output to the Log, which is visible in the LogCat:
-        Log.d("function output", getTestDataArray().toString())
+        Log.d("function 1 output", getTestDataArray().toString())
+        Log.d("function 2 output", averageLessThanMedian(doubles).toString())
+
 
     }
 
